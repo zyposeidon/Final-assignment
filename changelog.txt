@@ -1,0 +1,803 @@
+
+%% bare_jrnl.tex
+%% V1.4b
+%% 2015/08/26
+%% by Michael Shell
+%% see http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.8b or later) with an IEEE
+%% journal paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/pkg/ieeetran
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% User assumes all risk.
+%% In no event shall the IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%*************************************************************************
+
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. The IEEE's font choices and paper sizes can   ***
+% *** trigger bugs that do not appear when using other class files.       ***                          ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+\documentclass[journal]{IEEEtran}
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[journal]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/pkg/ifpdf
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+%\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of the IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off
+% such as if a citation ever needs to be enclosed in parenthesis.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 5.0 (2009-03-20) and later if using hyperref.sty.
+% The latest version can be obtained at:
+% http://www.ctan.org/pkg/cite
+% The documentation is contained in the cite.sty file itself.
+\usepackage{subfigure}
+\usepackage[graphicx]{realboxes}
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at: 
+% http://www.ctan.org/pkg/graphicx
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/pkg/epslatex
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics.
+%
+% Note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/amsmath
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as the IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/pkg/algorithms
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/pkg/algorithmicx
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/array
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
+% for subfigure.sty, the latter of which is no longer maintained and is
+% incompatible with some LaTeX packages including fixltx2e. However,
+% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
+% which will override IEEEtran.cls' handling of captions and this will result
+% in non-IEEE style figure/table captions. To prevent this problem, be sure
+% and invoke subfig.sty's "caption=false" package option (available since
+% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
+% handling of captions.
+% Note that the Computer Society format requires a larger sans serif font
+% than the serif footnote size font used in traditional IEEE formatting
+% and thus the need to invoke different subfig.sty package options depending
+% on whether compsoc mode has been enabled.
+%
+% The latest version and documentation of subfig.sty can be obtained at:
+% http://www.ctan.org/pkg/subfig
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure.
+% Be aware that LaTeX2e kernels dated 2015 and later have fixltx2e.sty's
+% corrections already built into the system in which case a warning will
+% be issued if an attempt is made to load fixltx2e.sty as it is no longer
+% needed.
+% The latest version and documentation can be found at:
+% http://www.ctan.org/pkg/fixltx2e
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/stfloats
+% Do not use the stfloats baselinefloat ability as the IEEE does not allow
+% \baselineskip to stretch. Authors submitting work to the IEEE should note
+% that the IEEE rarely uses double column equations and that authors should try
+% to avoid such use. Do not be tempted to use the cuted.sty or midfloat.sty
+% packages (also by Sigitas Tolusis) as the IEEE does not format its papers in
+% such ways.
+% Do not attempt to use stfloats with fixltx2e as they are incompatible.
+% Instead, use Morten Hogholm'a dblfloatfix which combines the features
+% of both fixltx2e and stfloats:
+%
+% \usepackage{dblfloatfix}
+% The latest version can be found at:
+% http://www.ctan.org/pkg/dblfloatfix
+
+
+
+
+%\ifCLASSOPTIONcaptionsoff
+%  \usepackage[nomarkers]{endfloat}
+% \let\MYoriglatexcaption\caption
+% \renewcommand{\caption}[2][\relax]{\MYoriglatexcaption[#2]{#2}}
+%\fi
+% endfloat.sty was written by James Darrell McCauley, Jeff Goldberg and 
+% Axel Sommerfeldt. This package may be useful when used in conjunction with 
+% IEEEtran.cls'  captionsoff option. Some IEEE journals/societies require that
+% submissions have lists of figures/tables at the end of the paper and that
+% figures/tables without any captions are placed on a page by themselves at
+% the end of the document. If needed, the draftcls IEEEtran class option or
+% \CLASSINPUTbaselinestretch interface can be used to increase the line
+% spacing as well. Be sure and use the nomarkers option of endfloat to
+% prevent endfloat from "marking" where the figures would have been placed
+% in the text. The two hack lines of code above are a slight modification of
+% that suggested by in the endfloat docs (section 8.4.1) to ensure that
+% the full captions always appear in the list of figures/tables - even if
+% the user used the short optional argument of \caption[]{}.
+% IEEE papers do not typically make use of \caption[]'s optional argument,
+% so this should not be an issue. A similar trick can be used to disable
+% captions of packages such as subfig.sty that lack options to turn off
+% the subcaptions:
+% For subfig.sty:
+% \let\MYorigsubfloat\subfloat
+% \renewcommand{\subfloat}[2][\relax]{\MYorigsubfloat[]{#2}}
+% However, the above trick will not work if both optional arguments of
+% the \subfloat command are used. Furthermore, there needs to be a
+% description of each subfigure *somewhere* and endfloat does not add
+% subfigure captions to its list of figures. Thus, the best approach is to
+% avoid the use of subfigure captions (many IEEE journals avoid them anyway)
+% and instead reference/explain all the subfigures within the main caption.
+% The latest version of endfloat.sty and its documentation can obtained at:
+% http://www.ctan.org/pkg/endfloat
+%
+% The IEEEtran \ifCLASSOPTIONcaptionsoff conditional can also be used
+% later in the document, say, to conditionally put the References on a 
+% page by themselves.
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/url
+% Basically, \url{my_url_here}.
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+%
+% paper title
+% Titles are generally capitalized except for words such as a, an, and, as,
+% at, but, by, for, in, nor, of, on, or, the, to and up, which are usually
+% not capitalized unless they are the first or last word of the title.
+% Linebreaks \\ can be used within to get better formatting as desired.
+% Do not put math or special symbols in the title.
+\title{Distributed Sensor System Based on Long Distance BOTDA}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+
+\author{Yang~Zhang,~\IEEEmembership{Student,~Shanghai Jiaotong University,}
+       % <-this % stops a space
+\thanks{Mr. Zhang is currently studying for his doctorate in the Department of Electronic Information and Communication Engineering of Shanghai Jiaotong University, and his research direction is distributed optical fiber sensing.China, 201100 e-mail: zyposeidon@sjtu.edu.cn.}% <-this % stops a space
+}
+
+% note the % following the last \IEEEmembership and also \thanks - 
+% these prevent an unwanted space from occurring between the last author name
+% and the end of the author line. i.e., if you had this:
+% 
+% \author{....lastname \thanks{...} \thanks{...} }
+%                     ^------------^------------^----Do not want these spaces!
+%
+% a space would be appended to the last name and could cause every name on that
+% line to be shifted left slightly. This is one of those "LaTeX things". For
+% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
+% "AB" then you have to do: "\textbf{A}\textbf{B}"
+% \thanks is no different in this regard, so shield the last } of each \thanks
+% that ends a line with a % and do not let a space in before the next \thanks.
+% Spaces after \IEEEmembership other than the last one are OK (and needed) as
+% you are supposed to have spaces between the names. For what it is worth,
+% this is a minor point as most people would not even notice if the said evil
+% space somehow managed to creep in.
+
+
+
+% The paper headers
+\markboth{Journal of \LaTeX\ Class Files,~Vol.~14, No.~8, December~2022}%
+{Zhang \MakeLowercase{\textit{et al.}}: Distributed Sensor System Based on Long Distance BOTDA}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+% 
+% *** Note that you probably will NOT want to include the author's ***
+% *** name in the headers of peer review papers.                   ***
+% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
+% you desire.
+
+
+
+
+% If you want to put a publisher's ID mark on the page you can do it like
+% this:
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2015 IEEE}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark.
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+
+% make the title area
+\maketitle
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract or keywords.
+\begin{abstract}
+The distributed optical fiber sensor uses optical fiber as the sensing medium, and has the advantages of electromagnetic interference resistance, corrosion resistance, small size, easy embedding, etc. It has become an effective solution for fault diagnosis and accident warning in energy industry, civil engineering, traffic safety and other fields. Among them, the Brillouin Time Domain Analysis (BOTDA) sensor based on stimulated Brillouin scattering (SBS) effect has outstanding advantages in long-distance distributed temperature and strain detection, and is one of the research focuses in the field of distributed optical fiber sensors.
+\end{abstract}
+
+% Note that keywords are not normally used for peerreview papers.
+\begin{IEEEkeywords}
+Distributed optical fiber sensing, Stimulated Brillouin scattering, Brillouin time domain analysis.
+\end{IEEEkeywords}
+
+
+
+
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+% The very first letter is a 2 line initial drop letter followed
+% by the rest of the first word in caps.
+% 
+% form to use if the first word consists of a single letter:
+% \IEEEPARstart{A}{demo} file is ....
+% 
+% form to use if you need the single drop letter followed by
+% normal text (unknown if ever used by the IEEE):
+% \IEEEPARstart{A}{}demo file is ....
+% 
+% Some journals put the first two words in caps:
+% \IEEEPARstart{T}{his demo} file is ....
+% 
+% Here we have the typical use of a "T" for an initial drop letter
+% and "HIS" in caps to complete the first word.
+\IEEEPARstart{W}{ith} information and intelligence gradually becoming the characteristics of the times in the current society, the requirements for the dependability, sensing accuracy and economic practicality of sensor technology in various fields of economy, life and military are also increasing. The distributed optical fiber sensing technology not only includes the general advantages of general optical fiber sensors, such as strong anti-interference, but also has a series of characteristics that meet the requirements of the development of the modern Internet of Things, such as small size, explosion-proof and flameproof, high pressure, anti-corrosion, electromagnetic interference, etc., especially the continuous space-time distribution information along the optical fiber to be measured can be effectively measured by the system. The Brillouin time domain analyzer based on stimulated Brillouin backscattering can realize the dual sensing of temperature and strain in a range of up to 100 kilometers, so it is widely used in underground detection, transportation pipelines, border security, submarine cable monitoring, etc.
+
+The phenomenon of stimulated Brillouin scattering in optical fibers was first proposed by Ippen et al. in 1972 \cite{1}. Since then, this phenomenon has received extensive and in-depth attention from academia and industry. However, when Brillouin scattering was discovered, it was only used to measure some intrinsic physical parameters of optical fibers. The time node for in-depth study of this phenomenon as a new sensing technology was in 1989 when people found that Brillouin scattering in optical fibers had a strong linear relationship with temperature and strain \cite{2}. According to this research result, Horiguchi et al. creatively proposed the BOTDA technology based on stimulated Brillouin scattering in 1989 \cite{3}. At the same time, Bao et al. put forward the loss type BOTDA technology based on stimulated Brillouin scattering \cite{4} in 1993. This technology avoided other nonlinear problems caused by the continuous amplification of the pump pulse in the original BOTDA technology. They realized a 5m system space division rate on a 32km long ordinary single-mode optical fiber. In the optical fiber sensing technology based on Brillouin effect, the spatial resolution of the system greatly depends on the width of the pump pulse, and the narrower pulse width also corresponds to the weaker Brillouin effect, so the spatial resolution of this technology is difficult to be lower than 1m. In order to achieve higher spatial resolution of the system, K In 2002, Hotate et al. proposed the Brillouin Optical Coherent Domain Analysis (BOCDA) technology \cite{5}, which successfully achieved a system spatial resolution of 1cm, but its sensing distance was only 250m.
+
+At present, the research focus of domestic and foreign scholars is focused on improving the existing basic sensing technology to solve various problems faced by the existing technology. For example, in 2001, S.M. Maughan et al. used microwave heterodyne detection to increase the sensing distance of the BOTDR system to 57km, with a spatial resolution of 20m \cite{6}. In 2005, M.N. Alahbabi of Southampton University and others further improved the sensing distance of the BOTDR system to 150km \cite{7} by using the method of reverse pumping Raman online amplification to achieve the technical indicators of the system's spatial resolution of 50m and temperature resolution of 5.2 °. In addition, Y Dong et al. applied time-division multiplexing technology to the BOTDA technology in 2010, which successfully identified 0.6m temperature change area at 75km and 2m temperature change area at 100km, and achieved 2 ° temperature resolution \cite{8}. However, due to the use of time division multiplexing technology, the measurement time of this technology is inevitably greatly extended. Similar to the Raman amplification technology in the BOTDR system, M.A. Soto et al. applied the Raman amplification technology to the BOTDA technology in 2011, enabling the system to achieve 120km long distance sensing with a spatial resolution of 2m and a temperature resolution of 2.1 ° \cite{9}.
+
+However, the above sensing technologies have not greatly improved the spatial resolution index of the system. This is because the relaxation time of acoustic phonons in the optical fiber is about 10 $ns$ \cite{10}. When the pulse width is less than 10 $ns$, the linewidth of Brillouin scattering spectrum will sharply increase while the peak gain will sharply decrease, thus increasing the difficulty of fitting the Brillouin scattering spectrum, and the accuracy of Brillouin frequency shift measurement will be greatly deteriorated. Recently, however, many researchers have tried to break through the problem of broadening Brillouin gain spectrum caused by phonon relaxation, and also achieved good results. For example, A.W. Brown et al. proposed the dark pulse based BOTDA technology in 2007 \cite{11}, which realized the spatial resolution of 20mm and the spatial resolution of 20 $\mu \varepsilon $ strain resolution, but the sensing distance is greatly limited because the continuous pumping light will excite the self issued Liouin scattering and is affected by the pump consumption. And because of the influence of the second order residual, the fitting Brillouin frequency accuracy will also have some errors. In addition, Stella M. Foaleng et al. achieved a spatial resolution of 5cm and a frequency resolution of 3MHz on a 5km long sensing optical fiber using 500ps $\pi$ phase shift pulse in 2010 \cite{12}. The sensing mechanism of $\pi$ pulse is similar to that of dark pulse, which is also affected by the continuous pumping light and the second order residual image. However, due to the sudden experience of pump light with different phase, the Brillouin gain experienced by the probe light will no longer be zero but will be reflected to the pump light, which makes the signal-to-noise ratio of the $\pi$ phase pulse method double that of the dark pulse method, while the spatial resolution remains unchanged.
+
+% You must have at least 2 lines in the paragraph with the drop letter
+% (should never be an issue)
+
+
+%\hfill Yang Zhang
+ 
+%\hfill December 23, 2022
+
+\section{Theoretical principles}
+
+\subsection{Dispersion in optical fibers}
+As we all know, the dispersion phenomena in optical fibers can be divided into the following three categories according to their generation principles: Rayleigh scattering caused by uneven refractive index distribution in optical fibers, Raman scattering caused by optical phonons, and Brillouin scattering caused by acoustic phonons\cite{13}.
+
+\subsubsection{Rayleigh scattering light}
+The wavelength of Rayleigh scattering light \cite{14} is the same as that of input light, which is a kind of elastic scattering guide. Rayleigh scattering originates from the inhomogeneity of the dielectric constant of the optical fiber at the nanometer level. This heterogeneity mainly comes from two aspects. First of all, the density of optical fiber may fluctuate due to stress, material impurity and other reasons during the manufacturing process; Secondly, in order to make the fiber have poor refractive index in the radial direction or achieve good mechanical properties, the fiber will be doped internally, and these doped particles will also cause the fiber to have uneven dielectric constant.
+
+\subsubsection{Brillouin scattering light}
+Light is both a wave and a particle, so it will exert a force on the fiber in the process of fiber propagation, that is, produce the optical force effect. This external force causes tiny deformation to the optical fiber, which is called photostretch\cite{15}. The tiny deformation of the optical fiber will cause the density of some parts of the optical fiber to increase and the density of some parts to decrease, which will cause the change of the dielectric constant of the optical fiber, that is, the change of the refractive index. This process is called the elastic optical effect. When the frequency of light is the same as or close to the natural sound field frequency of the optical fiber, the optical fiber refractive index will produce a strong periodic fluctuation caused by photostretch, which is similar to solid resonance. After the refractive index of the fiber changes, the input probe light is phase modulated. Since the derivative of phase with respect to time is proportional to frequency, Stokes light and anti Stokes light are generated. Since the energy always tends to flow in a more stable state, Stokes light is the most commonly detected scattered light.
+
+\subsubsection{Raman scattering light}
+Both Raman scattering and Brillouin scattering of optical fiber belong to inelastic scattering, but the difference between Raman scattering and Brillouin scattering of optical fiber is that the Brillouin scattering of optical fiber essentially means that the vibration motion of the whole molecular chain in the material is excited by light during transmission, so the vibration speed is slow, but the essence of Raman scattering is that the transmission light stimulates the movement of molecules in the molecular chain in the material, so the vibration speed is fast\cite{16}. Therefore, the frequency difference between Raman scattering Stokes light and pump light is far greater than Brillouin scattering.
+
+\subsection{Brillouin scattering mechanism}
+Brillouin effect, as a nonlinear elastic scattering in light scattering effect, is a process of energy transfer due to the interaction between incident light and acoustic phonons in optical fibers. At present, the distributed optical fiber sensing technology based on Brillouin scattering effect mainly includes three technologies: Brillouin Optical Time Domain Reflectometry (BOTDR)\cite{17} based on self published Brillouin scattering, Brillouin Optical Time Domain Analysis (BOTDA)\cite{18} based on stimulated Brillouin scattering, and Brillouin Optical Frequency Domain Analysis (BOFDA)\cite{19} based on stimulated Brillouin scattering.
+
+Brillouin scattering is a light scattering phenomenon caused by the interaction between the incident light wave field and the elastic acoustic wave field in the medium. According to the causes of elastic acoustic field, it can be divided into Spontaneous Brillouin scattering (SPBS) and Stimulated Brillouin scattering (SBS). The former is caused by the elastic acoustic field generated by the self heating movement in the medium, and is a macroscopic elastic vibration; The elastic acoustic field of the latter is generated by electrostriction effect.
+
+\subsubsection{SPBS}
+SPBS is generated from light scattering caused by the inherent thermodynamic adiabatic density fluctuation (acoustic fluctuation) of any material, which makes the density of the material change periodically in the two dimensions of time and space. In the fiber, it is shown as a sound field grating that fluctuates along the fiber. When the pump light shoots into the fiber from one end, the acoustic wave in the fiber medium is scattered, and the incident photons are annihilated in this process, generating Stokes photons (anti Stokes photons). The frequency deviation of the generated scattered light relative to the incident light is called Brillouin frequency shift, and this process is called SPBS.
+
+\subsubsection{SBS}
+If the intensity of the pump light meets the SBS generation threshold, the fiber refractive index will cause cyclic oscillation due to electrostriction, which will greatly increase the intensity of the acoustic field that meets the phase matching. Most of the energy of the pump light will be transferred to the Brillouin scattering signal, and the excited Brillouin photons will back enhance the acoustic field. The optical field and acoustic field existing in the fiber will affect each other, The process of making the incident pump light transfer the energy as much as possible to the back propagating Stokes scattering light energy is called SBS effect.
+
+\subsection{BOTDA sensing mechanism}
+BOTDA is a distributed optical fiber sensing technology based on stimulated Brillouin scattering. BOTDA mainly uses the interaction between pump light and signal light. Because the beat light of pump light and signal light causes the phase modulation of optical fiber, the pump light energy is transferred to the signal light substantially. The traditional BOTDA sweeps the detection light near the Brillouin frequency shift (BFS) of the fiber (the BFS of ordinary single-mode fiber is between 10.5GHz and 11GHz) to obtain the same position intensity curve at a fixed frequency. Concentrate the results under different sweep frequencies to form Brillouin Gain Spectrum (BGS) at different positions along the fiber, so as to obtain BFS at different positions of the fiber. The corresponding temperature and stress can be obtained by measuring the stimulated Brillouin scattering gain spectrum at different positions on the optical fiber, as shown in Figure 1.
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[height=3cm,width=8cm]{PC1.png}
+\caption{BOTDA principle block diagram}
+\label{1}
+\end{figure}
+
+The pulse pump light and signal light are injected from both ends of the fiber under test respectively. If the frequency of the continuous pump light is higher than the pulse probe light, the pulse light will be amplified by the stimulated Brillouin scattering of the continuous light, and the continuous light will experience additional dynamic loss, which is called Brillouin loss. If the frequency of the continuous light is lower than that of the pulse probe light, the energy of the pulse light will be transferred to the Brillouin scattering component of the continuous light, so that the continuous light can be amplified. This process is called Brillouin gain. Compared with Rayleigh scattering based optical time domain reflectometer (OTDR), Raman scattering based Raman optical time domain reflectometer (ROTDR) and BOTDR technology (signal attenuation is 0.4 dB/km), the Brillouin signal of BOTDA only experienced 0.2 dB/km optical fiber attenuation, which has outstanding advantages in long-distance sensing scenes.
+
+\subsubsection{Three wave coupling}
+
+The SBS effect can be described as the nonlinear interaction between the pump wave and the Stokes wave through acoustic waves. The pump wave generates acoustic waves through electrostriction, and the refractive index of the acoustic modulation medium generates dynamic gratings. The refractive index grating scatters the pump wave through Bragg diffraction. Due to the Doppler effect of the grating moving at the speed of sound, the frequency of the scattered light shifts down. In the scattering process, energy and momentum are conserved, so the relationship between the frequency and wave vector of the three waves is:
+\begin{equation}
+  \Omega_{B}=\omega_{p}-\omega_{s}  
+  \label{e1}
+\end{equation}
+\begin{equation}
+  k_{a}=k_{p}-k_{s}
+  \label{e2}
+\end{equation}
+
+$ \omega_{p} $ and $ \omega_{s} $ are the angular frequencies of the pump light and the Stokes light, respectively, and $ k_{p} $ and $ k_{s} $ are their corresponding wave vectors. The angular frequency and wave vector of acoustic wave meet the standard dispersion relation:
+
+\begin{equation}
+  \Omega_{B}=V_{a}\left|k_{a}\right| \approx 2 V_{a}\left|k_{p}\right| \sin \frac{\theta}{2}
+  \label{e3}
+\end{equation}
+Where $ \theta $ is the angle between the pump wave and the Stokes wave, and the approximate relation $ k_{p} \approx k_{s} $ is used. The above formula shows that the frequency shift of Stokes wave is backward($\theta=\pi$) There is a maximum value, which is zero in the forward direction ($ \theta=0 $). In ordinary single-mode fiber, only the forward and backward directions are relevant, so SBS only occurs in the backward direction, so the backward Brillouin frequency shift is:
+\begin{equation}
+  v_{B}=\frac{\Omega_{B}}{2 \pi}=\frac{2 n_{p} V_{a}}{\lambda_{p}}
+  \label{e4}
+\end{equation}
+$\left|k_{p}\right|=2 \pi n_{p} / \lambda_{p} $is used in this equation.When the incident pump wavelength is$ \lambda_{p}=1550nm $, the typical values of the refractive index and sound velocity of the quartz fiber are$ n_{p}=1.46 $ and $ V_{a}=5.9km/s $ respectively, so the Brillouin frequency shift can be estimated to be $ v_{B}\approx11GHz $.
+
+The wave equation of light transmission in optical fiber can be derived from Maxwell equations:
+\begin{equation}
+  \nabla^{2} E-\frac{n^{2}}{c^{2}} \frac{\partial^{2} E}{\partial t^{2}}=\mu_{0} \frac{\partial^{2} p}{\partial t^{2}}
+  \label{e5}
+\end{equation}
+Where, $c$ is the speed of light in the vacuum, and the relation $\mu_{0} \varepsilon_{0}=1 / c^{2}$ is used, $\mu_{0}$ is the magnetic permeability in the vacuum, $\varepsilon_{0}$ is the dielectric constant in the vacuum, and $n$ is the refractive index of the medium. In order to completely describe the transmission of light waves in optical fibers, the relationship between induced polarization intensity $p$ and electric field intensity $E$ is also needed. When the high intensity electric field acts on the optical fiber, $p$ is a nonlinear function of $E$, so the nonlinear polarization term $p^{N L}=\Delta \varepsilon E$ must be introduced. Then the wave equation in SBS can be described as:
+\begin{equation}
+  \nabla^{2} E-\frac{n^{2}}{c^{2}} \frac{\partial^{2} E}{\partial t^{2}}=\mu_{0} \frac{\partial^{2} p^{N L}}{\partial t^{2}}
+  \label{e6}
+\end{equation}
+The periodic change of material density can be described as:
+\begin{equation}
+  \frac{\partial^{2} \Delta \rho}{\partial t^{2}}-\Gamma^{\prime} \nabla^{2} \frac{\partial \Delta \rho}{\partial t}-V_{a}^{2} \nabla^{2} \Delta \rho=\nabla * \vec{f}
+  \label{e7}
+\end{equation}
+The SBS effect in optical fiber involves the three wave coupling process of pump light, Stokes light and acoustic wave. The pump light and stokes light can be expressed as:
+\begin{equation}
+  E_{p}(z, t)=e_{p} A_{p}(z, t) \exp \left[i\left(\omega_{p} t+k_{p} z\right)\right]
+  \label{e8}
+\end{equation}
+\begin{equation}
+  E_{s}(z, t)=e_{s} A_{s}(z, t) \exp \left[i\left(\omega_{s} t-k_{s} z\right)\right]
+  \label{e9}
+\end{equation}
+The relationship between the acoustic field generated by pump light and Stokes light and the change of material density is as follows:
+\begin{equation}
+  \Delta \rho(z, t)=Q(z, t) \exp \left[i\left(\Omega_{B} t+k_{a} z\right)\right]
+  \label{e10}
+\end{equation}
+Where $e_{p}$ and $e_{s}$ are unit vectors of the state of polarization (SOP) of the pump light and the stokes light respectively, $A_{p}(z, t)$, $A_{s}(z, t)$ and $Q(z, t)$ are amplitude envelopes of the pump light field, the stokes light field and the acoustic wave field respectively.
+
+Taking (8) - (10) into (6) and (7), and assuming that the polarization state of the pump light is consistent with that of the Stokes light, the transient equation of three waves propagating in the fiber during SBS can be obtained:
+\begin{equation}
+  \begin{array}{c}
+{\left[\frac{\partial}{\partial z}+\frac{n}{c} \frac{\partial}{\partial t}\right] A_{p}(z, t)=i \frac{1}{2} g_{2}(z) A_{s}(z, t) Q(z, t)} \\
+{\left[\frac{\partial}{\partial z}+\frac{n}{c} \frac{\partial}{\partial t}\right] A_{s}(z, t)=-i \frac{1}{2} g_{2}(z) A_{p}(z, t) Q^{*}(z, t)} \\
+\frac{\partial}{\partial t} Q(z, t)+\Gamma_{A}(z) Q(z, t)=i g_{1} A_{p}(z, t) A_{s}{ }^{*}(z, t)
+\end{array}
+  \label{e11}
+\end{equation}
+and
+\begin{equation}
+  \Gamma_{A}(z)=i \frac{\Omega_{0}^{2}(z)-\Omega_{B}^{2}-i \Omega_{B} \Gamma_{B}}{2 \Omega_{B}}
+  \label{e12}
+\end{equation}
+Both $g_{1}=\varepsilon_{0} \gamma_{\varepsilon} q^{2}$ and $g_{2}=\gamma_{\varepsilon} \omega /\left(c n \rho_{0}\right)$ are constants related to electrostriction coefficient $\gamma_{\varepsilon}=\rho \frac{\partial \varepsilon}{\partial \rho}$. $\Omega_{0}$ is Brillouin resonance angular frequency, and $\Gamma_{B}=q \Gamma^{\prime}$ is phonon attenuation constant.
+
+If the three wave complex amplitude and phase are assumed to be stable (steady state), and the time $t$ is long enough in this state, then the integral term of the three wave coupling equation to time is zero, so the SBS steady state coupling equation can be simplified as:
+\begin{equation}
+  \begin{array}{l}
+\frac{d}{d z} I_{p}(z)=-g_{B}(z, v) I_{p}(z) I_{s}(z) \\
+\frac{d}{d z} I_{s}(z)=g_{B}(z, v) I_{p}(z) I_{s}(z)
+\end{array}
+  \label{e13}
+\end{equation}
+Where $g_{B}(z, v)$ represents Brillouin gain coefficient, which is a complex number:
+\begin{equation}
+  g_{B}(z, v)=\frac{g_{0} \Delta v_{B}^{2}}{\Delta v_{B}^{2}+4 \Delta v^{2}}-i \frac{g_{0} \Delta v_{B} \Delta v}{\Delta v_{B}^{2}+4 \Delta v^{2}}
+  \label{e14}
+\end{equation}
+Where $\Delta v_{B}=\Gamma_{B} / 2 \pi$ is the FWHM of Brillouin gain spectrum, and $\Delta v=\Omega-v_{B}$ is the frequency difference between the pump Stokes frequency detuning and Brillouin frequency shift $v_{B}$.
+
+Based on the above description, we can obtain the gain signal of SBS's BOTDA, and the matrix pulse under different pulse widths will have varying degrees of spectrum broadening and peak frequency shift on the signal. This is because in the SBS effect, the phonons are slowly changing, with a relaxation time of about 10ns. When the pulse width is less than the SBS phonon relaxation time, the Brillouin gain decreases because the sound field cannot be fully excited. In the frequency domain, the essence of the Brillouin gain spectrum obtained by injecting pulses is the convolution of the Brillouin eigenspectrum and the pulse spectrum. Therefore, the narrower the pulse, the wider the Brillouin gain spectrum.
+
+\begin{figure}[htbp]
+\subfigure[]{
+\includegraphics[height=4cm,width=8cm]{2-1.png}
+}
+\hspace{1mm}
+\subfigure[]{
+\includegraphics[height=4cm,width=8cm]{2-2.png}
+}
+\caption{Brillouin gain signal}
+\label{2}
+\end{figure}
+
+\subsubsection{The relationship between temperature/strain and brillouin frequency shift}
+
+When the temperature or stress of the optical fiber changes, the material properties change, resulting in changes in sound velocity $V_{a}$ and refractive index, which will eventually lead to changes in Brillouin frequency shift. The sound velocity $V_{a}$ in the optical fiber can be expressed as:
+\begin{equation}
+  V_{a}=\sqrt{(1-k) E /(1+k)(1-2 k) \rho}
+  \label{e15}
+\end{equation}
+Where, $\rho$ is the fiber core density, $E$ is Young's modulus, and $k$ is Poisson's ratio. Because temperature and strain can change not only the refractive index, but also $\rho$ , $E$ and $k$ to change the sound velocity. Therefore, if the core density, Young's modulus, Poisson's ratio and optical fiber refractive index are expressed as functions of temperature $T$ and stress $\varepsilon$ respectively, then:
+\begin{equation}
+  v_{B}(T, \varepsilon)=\frac{2 v_{0}}{C} n(T, \varepsilon) \sqrt{\frac{E(T, \varepsilon)[1-k(T, \varepsilon)]}{[1+k(T, \varepsilon)][1-2 k(T, \varepsilon)] \rho(T, \varepsilon)}}
+  \label{e16}
+\end{equation}
+
+and $v_{0}$ is the laser frequency, and $C$ is the speed of light in the material. When T=20 ℃ at room temperature and there is no stress in the optical fiber, $n$=1.46, $\mathrm{E}=7.3 \times 10^{10}$, k=0.17, $\rho=2200 \mathrm{~kg} / \mathrm{m}^{3}$, $v_{0}$ is 194THz, that is 1550nm. The Brillouin frequency shift is about 11GHz. Then, the expression of Brillouin frequency is expanded under the fixed temperature $T_{0}$ and zero strain by first-order Taylor expansion, and the corresponding linear expression is obtained. The corresponding parameter change coefficient of optical fiber material with temperature and application is substituted respectively, and the expression of Brillouin frequency shift of single-mode optical fiber with temperature or stress can be obtained. When the temperature changes by 1 ℃, the Brillouin frequency shift changes by about 1.07MHz. When the fiber deformation produces 1 $\mu \varepsilon $ , the Brillouin frequency shift changes by about 0.05MHz, as shown in 3.
+
+\begin{figure}[htbp]
+\subfigure[]{
+\includegraphics[height=4cm,width=8cm]{3-1.png}
+}
+\hspace{1mm}
+\subfigure[]{
+\includegraphics[height=4cm,width=8cm]{3-2.png}
+}
+\caption{Brillouin gain spectrum. (a) General; (b) Hot events}
+\label{3}
+\end{figure}
+
+\subsubsection{Bottleneck of current BOTDA}
+The spatial resolution of the BOTDA system is usually limited to 1 meter because the relaxation time is required for the interaction between the pump pulse and the probe light. In order to break through this limitation and achieve higher spatial resolution, the following schemes have been proposed: acoustic wave pumping technology; Differential pulse pair scheme; Analysis of brillouin optical correlation domain.
+
+In Brillouin gain BOTDA, because the energy of the pump pulse light is continuously transferred to the continuous light as Stokes light, the energy of the pulse pump light is continuously reduced when it moves along the fiber, which is not conducive to long-distance sensing. In the aspect of detection light, the detection light power is limited by the non local effect and SBS threshold and cannot be infinitely increased; In terms of pump pulse, the pulse power is limited by the modulation instability effect and cannot be infinitely increased. To solve these problems, the optical pulse coding technology and distributed optical amplification technology can effectively alleviate these problems. Of course, the traditional digital signal processing technology can also improve the SNR of the system by filtering out the noise outside the signal.
+
+\section{Personal System Scheme}
+This system will achieve the final long distance, high-precision BOTDA sensing system through three stages. The first stage mainly realizes the sensing capability of BOTDA; In the second stage, long distance sensing of BOTDA is realized; The third stage is to realize high-precision sensing of long-distance BOTDA.
+
+\subsection{First stage sensing system}
+\begin{figure}[htbp]
+\centering
+\includegraphics[height=4cm,width=8cm]{4-1.png}
+\caption{Phase I system optical path diagram}
+\label{4}
+\end{figure}
+
+The optical path of the system in the first stage is shown in the figure above. After passing through a 50:50 coupler, the laser with a wavelength of 1550nm and a power of about 15mw will be divided into upper and lower branches to generate pump light and sweep continuous light respectively. The upper branch is: first, the laser passes through the acousto-optic modulator (AOM), and the AOM is driven by the outside to give the driving signal to generate a pulsed beam. Then, the polarization state of the original laser is adjusted through the polarizer (PS), so that the pump light and the signal light have the same polarization state. Then the pulse light enters the optical fiber amplifier (EDFA) to amplify the amplitude of the pulse, so as to improve the signal-to-noise ratio without non local effects. The pulse light modulated by EDFA enters the sensing fiber to be measured; The lower branch is: the laser first passes through the intensity modulator (EOM), and the EOM is modulated by the microwave source to generate sweep continuous light. The sweep range and sweep interval will be set on the microwave source. Then the continuous light is filtered by a band-pass filter, which filters the double sideband beam into a single sideband beam, and attenuates the intensity of the continuous light through a fiber optic attenuator (VOA) to avoid self phase modulation. Finally, the continuous light enters the sensing fiber to be measured. The generated pulse light and continuous sweep light will interact inside the fiber to generate Brillouin gain signal, which will be finally received by the photodetector (PD) after passing through the fiber coupler.
+
+\subsection{signal processing system}
+The signals collected by PD will be processed with the help of Matlab and Labview software. First, the signal received by PD is n exponential segments (n represents the number of sweeps, sweep range/sweep step), which represents the geometric relationship between transmission distance and gain coefficient at a fixed frequency. After n frequency scanning steps, the three-dimensional gain spectrum of the entire transmission fiber in the entire frequency scanning range can be depicted by selecting the highest point (usually the initial point). For subsequent hot events, the frequency gain coefficient curve can be added, so that the central frequency shift can be intuitively obtained.
+
+\section{conclusion}
+To sum up, the BOTDA system has unique advantages in long-distance distributed temperature and strain measurement. It has aroused great interest in the scientific research and industry, and is an important link in the future smart city, national defense security, energy security, smart ocean and other application fields. In the BOTDA technology, the non local effect in the traditional bilateral band scheme restricts the further improvement of the detection light power, thus limiting the sensing distance of the BOTDA system. Therefore, it is necessary to improve the frequency scanning scheme to break through this limitation; At the pulse end, due to the influence of phonon relaxation, BGS can be seen as the convolution of Brillouin eigenspectrum and pulse spectrum, which limits the spatial resolution on the one hand.However, BOTDA occupies a stable position among many sensors by virtue of distributed temperature and strain bilateral sensing.
+
+
+
+
+
+
+
+
+
+% if have a single appendix:
+%\appendix[Proof of the Zonklar Equations]
+% or
+%\appendix  % for no appendix heading
+% do not use \section anymore after \appendix, only \section*
+% is possibly needed
+
+% use appendices with more than one appendix
+% then use \section to start each appendix
+% you must declare a \section before using any
+% \subsection or using \label (\appendices by itself
+% starts a section numbered zero.)
+%
+
+
+%\appendices
+%\section{Proof of the First Zonklar Equation}
+%Appendix one text goes here.
+
+% you can choose not to have a title for an appendix
+% if you want by leaving the argument blank
+%\section{}
+%Appendix two text goes here.
+
+
+% use section* for acknowledgment
+%\section*{Acknowledgment}
+
+
+%The authors would like to thank...
+
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://mirror.ctan.org/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,../bib/paper}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+
+
+\bibliographystyle{IEEEtran}
+\bibliography{reference}
+
+\cite{2009Nonlinear}
+\cite{2012Dual}
+\cite{0C}
+% biography section
+% 
+% If you have an EPS/PDF photo (graphicx package needed) extra braces are
+% needed around the contents of the optional argument to biography to prevent
+% the LaTeX parser from getting confused when it sees the complicated
+% \includegraphics command within an optional argument. (You could create
+% your own custom macro containing the \includegraphics command to make things
+% simpler here.)
+%\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
+% or if you just want to reserve a space for a photo:
+
+%\begin{IEEEbiography}{Michael Shell}
+%Biography text here.
+%\end{IEEEbiography}
+
+% if you will not have a photo at all:
+%\begin{IEEEbiographynophoto}{John Doe}
+%Biography text here.
+%\end{IEEEbiographynophoto}
+
+% insert where needed to balance the two columns on the last page with
+% biographies
+%\newpage
+
+%\begin{IEEEbiographynophoto}{Jane Doe}
+%Biography text here.
+%\end{IEEEbiographynophoto}
+
+% You can push biographies down or up by placing
+% a \vfill before or after them. The appropriate
+% use of \vfill depends on what kind of text is
+% on the last page and whether or not the columns
+% are being equalized.
+
+%\vfill
+
+% Can be used to pull up biographies so that the bottom of the last one
+% is flush with the other column.
+%\enlargethispage{-5in}
+
+
+
+% that's all folks
+\end{document}
+
+
